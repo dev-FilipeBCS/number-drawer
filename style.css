@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* colors variables */
+  /* Content */
+  --content-primary: #FFFFFF;
+  --content-secondary: #C7C9CC;
+  --content-tertiary: #D9D9D9;
+  --content-brand: #C58DE7;
+  --color-inverse: #030203;
+  /* Background */
+  --bg-primary: #020202;
+  --bg-secondary: #111012;
+  --bg-tertiary: #24222E;
+  --bg-brand: #C58DE7;
+  --bg-gray: #3D3D3D;
+  /* Accent */
+  --accent-pink: #D586E0;
+  --accent-blue: #91A1FA;
+  --accent-green: #77C0AF;
+  --accent-lime: #D1DC97;
+  --accent-red: #E9A9B3;
+  /* Gradient */
+  --gradient-border: linear-gradient(90deg, 
+    #77C0AF 0%, 
+    #D1DC97 14.84%, 
+    #E9A9B3 32.15%, 
+    #D586E0 65.79%, 
+    #91A1FA 84.58%
+    );
+  --gradient-background: linear-gradient(90deg,
+    #D586E0 0%, 
+    #91A1FA 98.93%
+    );
+  --gradient-content: linear-gradient(90deg,
+    #C7C9CC 0%, 
+    #3D3D3D 100%
+    );
+
+  color: var(--content-primary);
+}
+
+body {
+  background-image: url("/assets/bg-image.png");
+  background-color: var(--bg-secondary);
+}
