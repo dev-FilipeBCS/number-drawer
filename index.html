@@ -8,25 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorteador de números</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/index.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,700;1,700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body> 
   <div id="logo">
     <img src="/assets/logo.svg" alt="Numbers logo">
     <span>NUMBERS</span>
   </div id="logo">
 
   <main>
-    <section id="Title">
-      <span>ONLINE - GRATUITO</span>
+    <section id="title">
+      <span>Online - Gratuito</span>
       <h1>Sorteador de números</h1>
     </section>
 
     <section id="info">
-      <div>
+      <div class="flex">
         <img src="/assets/icons/chat.svg" alt="">
         <div>
           <h2>Como funciona o sorteador de números?</h2>
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="flex">
         <img src="/assets/icons/chat.svg" alt="">
         <div>
           <h2>Posso escolher o intervalo dos números?</h2>
@@ -43,38 +43,60 @@
       </div>
     </section>
 
-    <section id="input">
-      <h3>QUERO SORTEAR:</h3>
+    <aside>
+      <h3>Quero sortear:</h3>
       <p>defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
-
-      <form action="#" method="post">
-        <label for="num1">NÚMEROS</label>
-        <input type="number" id="num1" name="num1" required><br><br>
-        
-        <label for="num2">DE</label>
-        <input type="number" id="num2" name="num2" required><br><br>
-        
-        <label for="num3">DE</label>
-        <input type="number" id="num3" name="num3" required><br><br>
-        
-        <input type="checkbox" id="check" name="check" checked>
-        <label for="check">Não Repetir número</label><br><br>
-        
-        <button type="submit">SORTEAR <img src="/assets/icons/right-arrow.svg" alt=""></button>
-      </form>
-    </section>
-
-    <section id="results-section">
-      <h3>Resultado do sorteio</h3>
-      <p>1º resultado</p>
-
-      <ul id="result">
-
-      </ul>
-
-      <button id="redraw">SORTEAR NOVAMENTE <img src="assets/icons/replay.svg" alt=""></button>
-    </section>
-  </main>
+      
+      <div id="input">
+        <form method="post" enctype="multipart/form-data">
+          <fieldset>
+            <div class="flex">
+              <div class="input-number">
+                <label for="draw">Números</label>
+                <div class="input-wrapper">
+                  <input type="text" name="draw" id="draw" class="nan" value="2">
+                </div>
+              </div>
   
+              <div class="input-number">
+                <label for="draw">De</label>
+                <div class="input-wrapper">
+                  <input type="text" name="inital" id="initial" class="nan" value="1">
+                </div>
+              </div>
+  
+              <div class="input-number">
+                <label for="draw">À</label>
+                <div class="input-wrapper">
+                  <input type="text" name="final" id="final" class="nan" value="100">
+                </div>
+              </div>
+            </div>
+
+            <div id="checkbox">
+                <div id="btn">
+                  <input type="checkbox" id="check" name="check">
+                </div>
+                <div>
+                  <label for="check">Não repetir número</label>
+                </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <div id="results">
+        <h3>Resultado do sorteio</h3>
+        <p>1º resultado</p>
+
+        <ul id="result">
+
+        </ul>
+
+        <button id="redraw">SORTEAR NOVAMENTE <img src="assets/icons/replay.svg" alt=""></button>
+      </div>
+    </aside>
+  </main>
+
 </body>
 </html>
