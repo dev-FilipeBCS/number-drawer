@@ -55,4 +55,6 @@ main {
 
 aside{
   grid-area: aside;
+  align-self: center;
+  font-family: "Roboto Flex", sans-serif;
 }

@@ -1,0 +1,202 @@
+#first-page {
+  & h3 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--content-primary);
+    text-transform: uppercase;
+  }
+
+  & p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--content-secondary);
+  }
+
+  & form {
+    & fieldset {
+      border-style: none;
+      margin-block: 2.5rem;
+
+      /* Div that contain .number-wrappers */
+      & > div {
+        gap: .75rem;
+      }
+
+      & .number-wrapper {
+        justify-items: center;
+        width: 8rem;
+        & > div {
+          color: var(--content-secondary);
+          font: 700 1.25rem/1.5 "Robot Flex", sans-serif;
+          text-transform: UpperCase;
+        }
+
+        & input{
+          background: transparent;
+          position: absolute;
+          inset: 0;
+          z-index: 10;
+          border-radius: .5rem;
+          border: none;
+
+          color: var(--content-primary);
+          font: 700 2rem/1.3 "Sora", sans-serif;
+          text-align: center;
+
+          &::placeholder {
+            color: var(--content-primary);
+          }
+
+          &:focus::placeholder {
+            color: transparent;
+          }
+        }
+
+        /* Create input animation */
+        & .fancy {
+          --offset: .3rem;
+          background: var(--bg-secondary);
+          border-radius: .5rem;
+          position: relative;
+          height: 3.5rem;
+          width: 5.375rem;
+          overflow: hidden;
+        }
+        
+        & .fancy:hover, & .fancy:focus-within {
+          background: var(--bg-tertiary);
+        }
+
+        & .fancy:hover::before, & .fancy:focus-within::before {
+          content: '';
+          background: var(--gradient-border);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          aspect-ratio: 1;
+          width: 100%;
+          animation: rotate 2s linear infinite;
+        }
+
+        & .fancy:hover::after, & .fancy:focus-within::after {
+          content: '';
+          background: inherit;
+          border-radius: inherit;
+          position: absolute;
+          inset: var(--offset);
+          height: calc(100% - 2 * var(--offset));
+          width: calc(100% - 2 * var(--offset));
+        }
+      }
+
+      & #checkbox {
+        margin-top: 1.25rem;
+        position: relative;
+
+        & .bg-check {
+          width: 1.875rem;
+          height: 1.25rem;
+          position: absolute;
+          background-image: url(../assets/icons/check-checked.svg);
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+
+        & input {
+          width: 1.875rem;
+          height: 1.25rem;
+          position: absolute;
+          appearance: none;
+        }
+
+        & label {
+          position: absolute;
+          align-self: center;
+          left: 2.375rem;
+        }
+      }
+    }
+
+    & .btn-wrapper {
+
+      & button {
+        background: transparent;
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        border-radius: .5rem;
+        border: none;
+
+        display: flex;
+        justify-content: center;
+        gap: .5rem;
+        
+        & p {
+          text-transform: uppercase;
+          align-content: center;
+          color: var(--content-primary);
+          font: 700 1.25rem/1.5 "Roboto Flex", sans-serif;
+        }
+        
+        img {
+          height: 1.5rem;
+          width: 1.5rem;
+          align-self: center;
+        }
+      }
+
+      & .fancy {
+        --offset: .3rem;
+        position: relative;
+        overflow: hidden;
+
+        background-color: var(--bg-tertiary);
+        border-radius: .5rem;
+        border-style: none;
+        width: 100%;
+        height: 3.5rem;
+        gap: .5rem;
+
+      }
+
+      & .fancy:hover, & .fancy:focus-within {
+        background: var(--bg-secondary);
+      }
+
+      & .fancy:hover::before, & .fancy:focus-within::before {
+        content: '';
+        background: var(--gradient-border);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        aspect-ratio: 1;
+        width: 100%;
+        animation: rotate 2s linear infinite;
+      }
+
+      & .fancy:hover::after, & .fancy:focus-within::after {
+        content: '';
+        background: inherit;
+        border-radius: inherit;
+        position: absolute;
+        inset: var(--offset);
+        height: calc(100% - 2 * var(--offset));
+        width: calc(100% - 2 * var(--offset));
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+      transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+  }
+
+  to {
+      transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
+}

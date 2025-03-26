@@ -14,10 +14,13 @@
 </head>
 
 <body> 
-  <div id="logo">
-    <img src="/assets/logo.svg" alt="Numbers logo">
-    <span>NUMBERS</span>
-  </div id="logo">
+  <section id="logo">
+    <a href="#">
+
+      <img src="/assets/logo.svg" alt="Numbers logo">
+      <span>NUMBERS</span>
+    </a>
+  </section>
 
   <main>
     <section id="title">
@@ -44,57 +47,67 @@
     </section>
 
     <aside>
-      <h3>Quero sortear:</h3>
-      <p>defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
-      
-      <div id="input">
+      <div id="first-page">
+        <h3>Quero sortear:</h3>
+        <p>defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
+  
         <form method="post" enctype="multipart/form-data">
           <fieldset>
             <div class="flex">
-              <div class="input-number">
-                <label for="draw">Números</label>
-                <div class="input-wrapper">
-                  <input type="text" name="draw" id="draw" class="nan" value="2">
+              <div class="number-wrapper">
+                <div>Números</div>
+                <div class="fancy">
+                  <input type="text" name="draw" id="draw" class="nan" placeholder="2">
                 </div>
               </div>
   
-              <div class="input-number">
-                <label for="draw">De</label>
-                <div class="input-wrapper">
-                  <input type="text" name="inital" id="initial" class="nan" value="1">
+              <div class="number-wrapper">
+                <div>De</div>
+                <div class="fancy">
+                  <input type="text" name="inital" id="initial" class="nan" placeholder="1">
                 </div>
               </div>
   
-              <div class="input-number">
-                <label for="draw">À</label>
-                <div class="input-wrapper">
-                  <input type="text" name="final" id="final" class="nan" value="100">
+              <div class="number-wrapper">
+                <div>À</div>
+                <div class="fancy">
+                  <input type="text" name="final" id="final" class="nan" placeholder="100">
                 </div>
               </div>
             </div>
 
             <div id="checkbox">
-                <div id="btn">
-                  <input type="checkbox" id="check" name="check">
-                </div>
-                <div>
-                  <label for="check">Não repetir número</label>
-                </div>
+                <div class="bg-check"></div>
+                <input type="checkbox" id="check" name="check" checked>
+                <label for="check">Não repetir número</label>
             </div>
           </fieldset>
+
+          <div class="btn-wrapper">
+            <div class="fancy">
+              <button id="draw-one" class="flex">
+                <p>Sortear</p> 
+                <img src="/assets/icons/right-arrow.svg" alt="">
+              </button>
+            </div>
+          </div>
+          
         </form>
       </div>
 
-      <div id="results">
-        <h3>Resultado do sorteio</h3>
-        <p>1º resultado</p>
+      <footer class="hide">
+        <div id="results">
+          <h3>Resultado do sorteio</h3>
+          <p>1º resultado</p>
+  
+          <ul id="result">
+  
+          </ul>
+  
+          <button id="redraw">SORTEAR NOVAMENTE <img src="assets/icons/replay.svg" alt=""></button>
+        </div>
+      </footer>
 
-        <ul id="result">
-
-        </ul>
-
-        <button id="redraw">SORTEAR NOVAMENTE <img src="assets/icons/replay.svg" alt=""></button>
-      </div>
     </aside>
   </main>
 
