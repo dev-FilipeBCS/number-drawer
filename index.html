@@ -47,7 +47,7 @@
     </section>
 
     <aside>
-      <div id="first-page">
+      <div class="first-page">
         <h3>Quero sortear:</h3>
         <p>defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
   
@@ -95,21 +95,34 @@
         </form>
       </div>
 
-      <footer class="hide">
+      <footer class="">
         <div id="results">
           <h3>Resultado do sorteio</h3>
           <p>1º resultado</p>
   
-          <ul id="result">
+          <div id="results-wrapper">
+            <div class="result-wrapper">
+                54
+            </div>
+
+            <div class="result-wrapper">
+                34
+            </div>
+          </div>
   
-          </ul>
-  
-          <button id="redraw">SORTEAR NOVAMENTE <img src="assets/icons/replay.svg" alt=""></button>
+          <div class="btn-wrapper">
+            <div class="fancy">
+              <button id="draw-one" class="flex">
+                <p>Sortear novamente</p> 
+                <img src="/assets/icons/replay.svg" alt="">
+              </button>
+            </div>
+          </div>
         </div>
       </footer>
 
     </aside>
   </main>
-
+  <script src="scripts.js"></script>
 </body>
 </html>

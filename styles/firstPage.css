@@ -1,18 +1,4 @@
-#first-page {
-  & h3 {
-    font-weight: 700;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    color: var(--content-primary);
-    text-transform: uppercase;
-  }
-
-  & p {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--content-secondary);
-  }
+.first-page {
 
   & form {
     & fieldset {
@@ -119,74 +105,117 @@
         }
       }
     }
+  }
+}
 
-    & .btn-wrapper {
+aside {
+  & h3 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--content-primary);
+    text-transform: uppercase;
+  }
 
-      & button {
-        background: transparent;
-        position: absolute;
-        inset: 0;
-        z-index: 10;
-        border-radius: .5rem;
-        border: none;
+  & p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--content-secondary);
+  }
 
-        display: flex;
-        justify-content: center;
-        gap: .5rem;
-        
-        & p {
-          text-transform: uppercase;
-          align-content: center;
-          color: var(--content-primary);
-          font: 700 1.25rem/1.5 "Roboto Flex", sans-serif;
-        }
-        
-        img {
-          height: 1.5rem;
-          width: 1.5rem;
-          align-self: center;
-        }
+  & .btn-wrapper {
+
+    & button {
+      background: transparent;
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      border-radius: .5rem;
+      border: none;
+
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      
+      & p {
+        text-transform: uppercase;
+        align-content: center;
+        color: var(--content-primary);
+        font: 700 1.25rem/1.5 "Roboto Flex", sans-serif;
       }
-
-      & .fancy {
-        --offset: .3rem;
-        position: relative;
-        overflow: hidden;
-
-        background-color: var(--bg-tertiary);
-        border-radius: .5rem;
-        border-style: none;
-        width: 100%;
-        height: 3.5rem;
-        gap: .5rem;
-
+      
+      img {
+        height: 1.5rem;
+        width: 1.5rem;
+        align-self: center;
       }
+    }
 
-      & .fancy:hover, & .fancy:focus-within {
-        background: var(--bg-secondary);
-      }
+    & .fancy {
+      --offset: .3rem;
+      position: relative;
+      overflow: hidden;
 
-      & .fancy:hover::before, & .fancy:focus-within::before {
-        content: '';
-        background: var(--gradient-border);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        aspect-ratio: 1;
-        width: 100%;
-        animation: rotate 2s linear infinite;
-      }
+      background-color: var(--bg-tertiary);
+      border-radius: .5rem;
+      border-style: none;
+      width: 100%;
+      height: 3.5rem;
+      gap: .5rem;
 
-      & .fancy:hover::after, & .fancy:focus-within::after {
-        content: '';
-        background: inherit;
-        border-radius: inherit;
-        position: absolute;
-        inset: var(--offset);
-        height: calc(100% - 2 * var(--offset));
-        width: calc(100% - 2 * var(--offset));
-      }
+    }
+
+    & .fancy:hover, & .fancy:focus-within {
+      background: var(--bg-secondary);
+    }
+
+    & .fancy:hover::before, & .fancy:focus-within::before {
+      content: '';
+      background: var(--gradient-border);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      aspect-ratio: 1;
+      width: 100%;
+      animation: rotate 2s linear infinite;
+    }
+
+    & .fancy:hover::after, & .fancy:focus-within::after {
+      content: '';
+      background: inherit;
+      border-radius: inherit;
+      position: absolute;
+      inset: var(--offset);
+      height: calc(100% - 2 * var(--offset));
+      width: calc(100% - 2 * var(--offset));
+    }
+  }
+}
+
+footer {
+  justify-items: center;
+  color: var(--content-brand);
+  font: 700 3rem/1.5 "Robot Mono", sans-serif;
+  text-align: center;
+
+  & #results {
+    width: 100%;
+  }
+
+  & #results-wrapper {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: .25rem;
+
+    margin-block: 2.5rem;
+
+    & .result-wrapper {
+      min-width: 5.25rem;
+      height: 6.25rem;
     }
   }
 }
