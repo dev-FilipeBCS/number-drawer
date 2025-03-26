@@ -106,6 +106,9 @@ form.onsubmit = (event) => {
     // add results to the second screen
     AddResults(drawInfo.results)
 
+    // animate results
+    AnimateResult()
+
   } catch (error) {
     alert(error)
     console.log(error)
@@ -125,6 +128,9 @@ btn.onclick = (event) => {
 
   // add results to the second screen
   AddResults(drawInfo.results)
+
+  // animate results
+  AnimateResult()
 }
 
 
@@ -182,3 +188,14 @@ function AddResults(results) {
   }
 }
 
+function AnimateResult() {
+  const resultWrapper = document.querySelector(".result-wrapper");
+  
+  // Restart animation by resetting class
+  resultWrapper.style.animation = "none";
+  void resultWrapper.offsetWidth; // Force reflow
+  resultWrapper.style.animation = null;
+
+  // Change number dynamically (optional)
+  resultWrapper.querySelector("div:last-child").textContent = Math.floor(Math.random() * 100);
+}

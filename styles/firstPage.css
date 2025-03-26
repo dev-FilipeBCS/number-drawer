@@ -122,6 +122,7 @@ aside {
   }
 
   & .btn-wrapper {
+    margin-bottom: 3rem;
 
     & button {
       background: transparent;
@@ -199,30 +200,6 @@ footer {
 
   & #results {
     width: 100%;
-  }
-
-  & #results-wrapper {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: .25rem;
-
-    margin-block: 2.5rem;
-
-    & .result-wrapper {
-      min-width: 5.25rem;
-      height: 6.25rem;
-      position: relative;
-
-      & div {
-        position: absolute;
-        background: transparent;
-        min-width: 5.25rem;
-        height: 6.25rem;
-        border-radius: .5rem;
-      }
-    }
   }
 }
 
