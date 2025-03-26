@@ -189,13 +189,11 @@ function AddResults(results) {
 }
 
 function AnimateResult() {
-  const resultWrapper = document.querySelector(".result-wrapper");
-  
-  // Restart animation by resetting class
-  resultWrapper.style.animation = "none";
-  void resultWrapper.offsetWidth; // Force reflow
-  resultWrapper.style.animation = null;
+  const results = document.querySelectorAll(".result-wrapper");
 
-  // Change number dynamically (optional)
-  resultWrapper.querySelector("div:last-child").textContent = Math.floor(Math.random() * 100);
+  results.forEach((result, index) => {
+      setTimeout(() => {
+          result.classList.add("fade-in");
+      }, index * 1000); // Staggered delay (1s per result)
+  });
 }
