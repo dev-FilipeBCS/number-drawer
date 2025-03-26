@@ -12,11 +12,12 @@
 
       & .number-wrapper {
         justify-items: center;
-        width: 8rem;
+
         & > div {
           color: var(--content-secondary);
           font: 700 1.25rem/1.5 "Robot Flex", sans-serif;
           text-transform: UpperCase;
+          text-align: center;
         }
 
         & input{
@@ -134,6 +135,7 @@ aside {
 
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: .5rem;
       
       & p {
