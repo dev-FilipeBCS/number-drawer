@@ -82,13 +82,10 @@
         margin-top: 1.25rem;
         position: relative;
 
-        & .bg-check {
+        & #bg-check {
           width: 1.875rem;
           height: 1.25rem;
           position: absolute;
-          background-image: url(../assets/icons/check-checked.svg);
-          background-size: contain;
-          background-repeat: no-repeat;
         }
 
         & input {
@@ -216,6 +213,15 @@ footer {
     & .result-wrapper {
       min-width: 5.25rem;
       height: 6.25rem;
+      position: relative;
+
+      & div {
+        position: absolute;
+        background: transparent;
+        min-width: 5.25rem;
+        height: 6.25rem;
+        border-radius: .5rem;
+      }
     }
   }
 }
