@@ -63,20 +63,28 @@ notRepeatNumber.onclick = () => {
   }
 }
 
+// create new object to receive parameters for draw
+const drawInfo = {
+  draw_quantity: 2, // Valor padrão: 2
+  initial_value: 1,       // Valor padrão: 1
+  final_value: 100,         // Valor padrão: 100
+  not_repeat_number: true,
+  results: [] // empty array to store results
+}
+
+// submit event
 form.onsubmit = (event) => {
   // prevent default behavior of submit
   event.preventDefault()
 
   // check if the draw process is possible
   try {
-    // create new object with info of expense
-    const drawInfo = {
-      draw_quantity: Number(drawQuantity.value) || 2, // Valor padrão: 2
-      initial_value: Number(initial.value) || 1,       // Valor padrão: 1
-      final_value: Number(final.value) || 100,         // Valor padrão: 100
-      not_repeat_number: notRepeatNumber.checked,
-      results: [] // empty array to store results
-    }
+    // update drawInfo
+    drawInfo.draw_quantity = Number(drawQuantity.value) || 2
+    drawInfo.initial_value = Number(initial.value) || 1
+    drawInfo.final_value = Number(final.value) || 100
+    drawInfo.not_repeat_number = notRepeatNumber.checked
+
     // console.log(drawInfo)
 
     // Boolean operations to check if the draw process is possible
@@ -86,28 +94,7 @@ form.onsubmit = (event) => {
       throw new Error("A quantidade de números sorteados diferentes não pode exceder o intervalo de números definidos")
 
     // draw numbers
-    for (let i = 0; i < drawInfo.draw_quantity; i++) {
-      let result = getRandomInt(drawInfo.initial_value, drawInfo.final_value + 1)
-      
-      // draw for the case where drawing the same number is possible
-      if (drawInfo.not_repeat_number === false)
-        drawInfo.results.push(result)
-
-      // draw for the case where drawing the same number is not possible
-      if (drawInfo.not_repeat_number === true) {
-        // checks if the number was drawn
-        let safetyBreak = 0
-        while (drawInfo.results.includes(result)){
-          result = getRandomInt(drawInfo.initial_value, drawInfo.final_value + 1)
-          safetyBreak++
-          // safety break in the case of an infinite loop
-          if (safetyBreak>10000) {
-            throw new Error ("Não foi possível sortear os números")
-          }
-        }
-        drawInfo.results.push(result)
-      }
-    }
+    DrawNumbers(drawInfo.draw_quantity, drawInfo.initial_value, drawInfo.final_value, drawInfo.not_repeat_number)
 
     // check results
     // console.log(drawInfo.results)
@@ -125,21 +112,59 @@ form.onsubmit = (event) => {
   }
 }
 
+// redraw event
 btn.onclick = (event) => {
   event.preventDefault()
   
   // delete previous results
-  resultsWrapper.innerHTML = "";
+  resultsWrapper.innerHTML = ""
+  drawInfo.results = []
 
   // draw new results
+  DrawNumbers(drawInfo.draw_quantity, drawInfo.initial_value, drawInfo.final_value, drawInfo.not_repeat_number)
+
+  // add results to the second screen
+  AddResults(drawInfo.results)
 }
 
+
+// FUNCTIONS
+
+// function to generate random number
 function getRandomInt(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
 }
 
+// function to draw the numbers
+function DrawNumbers(numberOfDraws, initial, final, notRepeatDraw) {
+  // draw numbers
+  for (let i = 0; i < numberOfDraws; i++) {
+    let result = getRandomInt(initial, final + 1)
+    
+    // draw for the case where drawing the same number is possible
+    if (notRepeatDraw === false)
+      drawInfo.results.push(result)
+
+    // draw for the case where drawing the same number is not possible
+    if (notRepeatDraw === true) {
+      // checks if the number was drawn
+      let safetyBreak = 0
+      while (drawInfo.results.includes(result)){
+        result = getRandomInt(initial, final + 1)
+        safetyBreak++
+        // safety break in the case of an infinite loop
+        if (safetyBreak>10000) {
+          throw new Error ("Não foi possível sortear os números")
+        }
+      }
+      drawInfo.results.push(result)
+    }
+  }
+}
+
+// function to write results in HTML
 function AddResults(results) {
   for(let result of results) {
     const div = document.createElement("div")
@@ -156,3 +181,4 @@ function AddResults(results) {
     resultsWrapper.append(resultWrapper)
   }
 }
+
