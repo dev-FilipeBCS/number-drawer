@@ -31,6 +31,7 @@ main {
 #info {
   font-family: "Roboto Flex", sans-serif;
   font-weight: 400;
+  margin-bottom: 4rem;
   
   display: flex;
   flex-direction: column;
@@ -60,7 +61,7 @@ aside{
 }
 
 
-@media (width < 80em) {
+@media (width < 70em) {
   main {
     display: initial;
   }
